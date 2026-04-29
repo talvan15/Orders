@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String, Float, DateTime
 
 import uuid
 
-class product(Base):
+class Product(Base):
     __tablename__ = "products"
 
     id = Column(String, primary_key=True, index=True, default=lambda: str(uuid.uuid4()))
