@@ -2,9 +2,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from app.database import SessionLocal
-from app import crud
+from app.database import SessionLocal, engine
+from app import crud, models
 
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Clients Gateway")
 

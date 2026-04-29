@@ -1,11 +1,11 @@
 from concurrent import futures
 import grpc
 
-from . import order_pb2
-from . import order_pb2_grpc
+from generated import order_pb2
+from generated import order_pb2_grpc
 
-from .database import engine, SessionLocal, Base
-from .crud import create_order, get_order, get_orders
+from app.database import engine, SessionLocal, Base
+from app.crud import create_order, get_order, get_orders
 
 Base.metadata.create_all(bind=engine)
 
@@ -67,7 +67,7 @@ def serve():
         server
     )
 
-    server.add_insecure_port("[::]:50052")
+    server.add_insecure_port("[::]:50053")
     server.start()
 
     print("Orders Service gRPC rodando na porta 50052")
