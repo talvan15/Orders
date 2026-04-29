@@ -16,10 +16,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+<<<<<<< HEAD
 channel = grpc.insecure_channel("localhost:50053")
 stub = order_pb2_grpc.OrderServiceStub(channel)
 
 CLIENTS_URL = "http://127.0.0.1:5173"
+=======
+channel = grpc.insecure_channel("localhost:50052")
+stub = order_pb2_grpc.OrderServiceStub(channel)
+
+CLIENTS_URL = "http://127.0.0.1:8000"
+>>>>>>> develop
 PRODUCTS_URL = "http://127.0.0.1:8000/api/v1"
 
 
